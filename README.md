@@ -26,7 +26,7 @@ El proyecto sigue un flujo de trabajo estructurado para garantizar la integridad
 ## 💻 Cómo ejecutar el Notebook
 Para visualizar y ejecutar el análisis, se recomienda el uso de **Google Colab** por su facilidad para manejar entornos de Python:
 
-1.  Accede a [https://colab.research.google.com/drive/1mVwwQMjEuVqwG1X5FudntV-itt4kV8oM]
+1.  Accede a [https://colab.research.google.com/github/gabrielabustamantealarcon/telecom-analysis/blob/main/S7_Version_Estudiante_Project_ConnectaTel.ipynb#scrollTo=1a87415b]
 2.  Ejecuta las celdas secuencialmente presionando `Shift + Enter`.
 
 ## 🛠️ Guía de Reproducción
