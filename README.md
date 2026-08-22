@@ -1,28 +1,57 @@
-Este proyecto forma parte de la estrategia de análisis de datos de **ConnectaTel**, empresa de telecomunicaciones líder con operaciones en México y Colombia. El objetivo principal es transformar datos de uso crudos en conocimiento accionable para optimizar la oferta comercial y mejorar la experiencia del usuario.
+# 📞 ConnectaTel: Optimización de Oferta Comercial y Detección de Anomalías de Uso
 
-## 🎯 Objetivo del Proyecto
-El propósito central es entender cómo los clientes utilizan realmente los servicios móviles (llamadas y mensajes). A través de este análisis, se busco:
-* **Identificar patrones de uso:** Determinar tendencias generales de consumo.
-* **Detección de anomalías:** Localizar comportamientos atípicos que sugieran fraude, errores de registro o necesidades extremas.
-* **Segmentación de clientes:** Diferenciar grupos de usuarios para personalizar la oferta comercial.
-* **Optimización:** Brindar recomendaciones basadas en datos para el diseño de nuevos planes.
+> **Enfoque de Negocio:** Análisis cuantitativo de patrones de consumo para reducir la fricción en la experiencia del cliente, detectar desviaciones operativas/fraude y maximizar el margen de beneficio por usuario (ARPU).
 
-## 📊 Datasets Utilizados
-El análisis se basa en tres fuentes de datos integradas:
-1.  **`plans.csv`**: Catálogo de planes vigentes, incluyendo precios mensuales, cuotas de minutos/GB y costos por consumos excedentes.
-2.  **`users_latam.csv`**: Base de datos de clientes con atributos demográficos (edad, ciudad), fecha de registro y el plan suscrito.
-3.  **`usage.csv`**: Registro detallado de la actividad real, conteniendo la duración de las llamadas y la longitud de los mensajes enviados.
+---
 
-## 🚀 Etapas del Análisis
-El proyecto sigue un flujo de trabajo estructurado para garantizar la integridad de los resultados:
-1.  **Carga y Exploración:** Lectura inicial de los datos y revisión de estructuras.
-2.  **Identificación de Calidad:** Detección de valores nulos, valores centinela (sentinels) y validación de rangos de fechas.
-3.  **Limpieza de Datos:** Tratamiento de valores faltantes, conversión de tipos de datos y corrección de inconsistencias.
-4.  **Estadística Descriptiva:** Cálculo de medidas de tendencia central y dispersión para variables clave.
-5.  **Análisis de Outliers:** Uso de histogramas y diagramas de caja (boxplots) para identificar valores extremos.
-6.  **Segmentación:** Agrupación de usuarios bajo reglas de negocio y visualización de proporciones mediante *countplots*.
-7.  **Insights Ejecutivos:** Generación de conclusiones estratégicas y recomendaciones para la toma de decisiones.
+## 💼 Problema de Negocio
 
+En la industria de las telecomunicaciones en LATAM (México y Colombia), **ConnectaTel** enfrenta dos desafíos comerciales críticos:
+1. **Ineficiencia en la oferta de planes:** Diseñar paquetes tarifarios sin entender el comportamiento real del usuario genera insatisfacción, riesgo de migración de clientes (*churn*) y pérdida de ingresos por cobros excedentes no optimizados.
+2. **Riesgo operativo y anomalías:** Registros atípicos de consumo (llamadas de duración cero, picos extremos de mensajes o datos) representan posibles fallas de facturación, uso fraudulento o errores en los sistemas de captura de datos.
+
+**Pregunta Estratégica:** ¿Cómo podemos segmentar a los usuarios según su patrón real de uso para rediseñar la oferta comercial y neutralizar anomalías de registros antes de que afecten la rentabilidad?
+
+---
+
+## 🎯 Objetivos de la Investigación
+
+* **Diagnóstico de Patrones de Consumo:** Analizar la distribución de minutos y mensajes para identificar brechas entre las cuotas contratadas y el uso real.
+* **Detección de Anomalías y Outliers:** Aislar sesgos de medición (como valores *sentinel* o tráfico atípico) para garantizar la calidad del dataset y prevenir discrepancias en facturación.
+* **Segmentación Estratégica:** Agrupar clientes bajo reglas de negocio específicas para adaptar campañas de *upselling* o *cross-selling*.
+* **Recomendaciones Ejecutivas:** Proporcionar al equipo comercial guías basadas en datos para el diseño de planes de nueva generación.
+
+---
+
+## 📊 Arquitectura de Datos
+
+El análisis integra tres fuentes de información operativa y demográfica:
+
+* `plans.csv`: Estructura financiera de planes (precios base, límites de minutos/mensajes y tarifas por consumo excedente).
+* `users_latam.csv`: Atributos demográficos de clientes (edad, ciudad, fecha de alta y plan suscrito).
+* `usage.csv`: Registros transaccionales de uso real (duración de llamadas y volumen de mensajes enviados).
+
+---
+
+## 🛠️ Metodología y Flujo de Trabajo
+
+El proyecto implementa un pipeline analítico riguroso para asegurar la confiabilidad de los hallazgos:
+
+1. **Gobernanza y Calidad de Datos:** Identificación y tratamiento de valores nulos, registros duplicados, valores *sentinel* y estandarización de formatos temporales.
+2. **Tratamiento de Outliers y Estadística Descriptiva:** Análisis de dispersión y tendencias centrales mediante diagramas de caja (*boxplots*) e histogramas para definir límites operativos normales.
+3. **Segmentación y Agrupación por Negocio:** Categorización de usuarios mediante reglas condicionales y visualización de proporciones con `countplots`.
+4. **Modelado de Recomendaciones:** Traducción de métricas estadísticas en iniciativas comerciales accionables para la toma de decisiones.
+
+---
+
+## 🚀 Herramientas Utilizadas
+
+* **Entorno:** Jupyter Notebook
+* **Lenguaje:** Python
+* **Librerías Analíticas:** `pandas`, `numpy`
+* **Visualización:** `seaborn`, `matplotlib`
+
+---
 ## 💻 Cómo ejecutar el Notebook
 Para visualizar y ejecutar el análisis, se recomienda el uso de **Google Colab** por su facilidad para manejar entornos de Python:
 
